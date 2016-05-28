@@ -1,10 +1,9 @@
 var request = {
-  type: 'unlock',
-  device_id: '1',
-  uid: '598732987532',
+  type: 'subscribe',
+  email: 'itsankoff@gmail.com',
 };
 
-fetch('http://localhost:9999/api/unlock', {
+fetch('http://localhost:9999/api/subscribe', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
