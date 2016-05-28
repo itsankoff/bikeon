@@ -16,7 +16,7 @@ var allowCrossDomain = function(req, res, next) {
 var db = new sqlite3.Database('./bikeon.db');
 var app = express();
 var router = express.Router();
-var station = new Station(['1']);
+var station = new Station();
 
 router.get('/', (req, res) => {
   res.json({ message: 'hooray! welcome to our api!' });   
