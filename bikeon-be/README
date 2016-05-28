@@ -1,0 +1,2 @@
+* ./manage.sh install
+* node server.js
