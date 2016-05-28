@@ -15,7 +15,6 @@ var allowCrossDomain = function(req, res, next) {
 
 var db = new sqlite3.Database('./bikeon.db');
 var app = express();
-var port = process.env.PORT || 9999;
 var router = express.Router();
 var station = new Station(['1']);
 
@@ -117,6 +116,5 @@ router.post('/stream', (req, res) => {
 app.use(bodyParser.json());
 app.use(allowCrossDomain);
 app.use('/api', router);
-
-app.listen(port);
-console.log('Magic happens on port ' + port);
+app.listen(config.port);
+console.log('Magic happens on port ' + config.port);
