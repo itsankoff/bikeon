@@ -22,6 +22,11 @@
     device_id: 'fdfds7f987ds98f99ds7f'
 }
 
+{
+    type: 'subscribe',
+    emial: 'johndoe@example.com'
+}
+
 # SERVER -> CLIENT
 {
     type: 'response',
