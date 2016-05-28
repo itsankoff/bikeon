@@ -8,7 +8,7 @@ $( "#subscribe" ).click(function() {
 
 	console.log(request);
 
-	fetch('http://localhost:9999/api/subscribe', {
+	fetch('http://itsankoff.com:9999/api/subscribe', {
 	  method: 'POST',
 	  headers: {
 	    'Accept': 'application/json',
