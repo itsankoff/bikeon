@@ -1,4 +1,9 @@
 {
-    "port": 9999,
-    "DB": "sqlite://bikeon.db"
+    "DB": "sqlite://bikeon.db",
+    "api_port": 9999,
+    "ssl": false,
+    "ip": "185.14.184.35",
+    "station_port": 8888,
+    "ssl_cert": "/etc/ssl/certs/ssl-cert-snakeoil.pem",
+    "ssl_key": "/etc/ssl/private/ssl-cert-snakeoil.key"
 }
