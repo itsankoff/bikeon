@@ -1,12 +1,5 @@
 # CLIENT -> SERVER
 {
-    type: 'register',
-    payload: {
-        //
-    }
-}
-
-{
     type: 'auth',
     uid: '5385098320985093285'
 }
