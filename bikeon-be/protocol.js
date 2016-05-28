@@ -32,7 +32,7 @@ function validateRequest(req) {
     }
   }
 
-  console.log('invalid request');
+  console.log('invalid request', req);
   return false;
 }
 
