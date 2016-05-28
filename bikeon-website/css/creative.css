@@ -3,7 +3,8 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
-
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700);
 html,
 body {
     width: 100%;
@@ -16,7 +17,7 @@ body {
 
 hr {
     max-width: 50px;
-    border-color: #f05f40;
+    border-color: #BD882C;
     border-width: 3px;
 }
 
@@ -25,7 +26,7 @@ hr.light {
 }
 
 a {
-    color: #f05f40;
+    color: #BD882C;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -35,7 +36,14 @@ a:hover,
 a:focus {
     color: #eb3812;
 }
-
+.navbar-brand {
+    font-family: "Lato" !important;    
+    text-transform: none !important;
+}
+.header-heading {
+    font-family: "Lato" !important;    
+    text-transform: none !important;
+}
 h1,
 h2,
 h3,
@@ -45,6 +53,13 @@ h6 {
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
 }
 
+footer{
+    padding: 15px;
+    font-family: "Lato";
+    font-weight: 800;
+    font-size: 20px;
+}
+
 p {
     margin-bottom: 20px;
     font-size: 16px;
@@ -52,8 +67,21 @@ p {
 }
 
 .bg-primary {
-    background-color: #f05f40;
+    background-color: #BD882C;
 }
+
+.map {
+    height: 500px;
+    overflow: hidden;
+    margin-bottom: -50px;
+}
+
+@media(max-width:768px) {
+    .map {
+        height: 75%;
+    }
+}
+
 
 .bg-dark {
     color: #fff;
@@ -64,7 +92,7 @@ p {
     color: rgba(255,255,255,.7);
 }
 
-section {
+.block {
     padding: 100px 0;
 }
 
@@ -89,7 +117,7 @@ aside {
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
-    color: #f05f40;
+    color: #BD882C;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
@@ -107,12 +135,12 @@ aside {
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: #f05f40;
+    color: #BD882C;
 }
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: #f05f40!important;
+    color: #BD882C!important;
     background-color: transparent;
 }
 
@@ -123,12 +151,15 @@ aside {
 
 @media(min-width:768px) {
     .navbar-default {
-        border-color: rgba(255,255,255,.3);
+        border-color: rgba(255,255,255,0);
         background-color: transparent;
+
+         padding: 2px 15px !important;
     }
 
     .navbar-default .navbar-header .navbar-brand {
         color: rgba(255,255,255,.7);
+         padding: 2px 15px !important;
     }
 
     .navbar-default .navbar-header .navbar-brand:hover,
@@ -150,10 +181,14 @@ aside {
         border-color: rgba(34,34,34,.05);
         background-color: #fff;
     }
-
+    .navbar-brand>img {
+        display: block;
+        height: 48px;
+    }
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 14px;
-        color: #f05f40;
+        color: #BD882C;
+        padding: 2px 15px !important;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
@@ -168,7 +203,7 @@ aside {
 
     .navbar-default.affix .nav > li>a:hover,
     .navbar-default.affix .nav>li>a:focus:hover {
-        color: #f05f40;
+        color: #BD882C;
     }
 }
 
@@ -179,11 +214,33 @@ header {
     text-align: center;
     color: #fff;
     background-image: url(../img/header.jpg);
+    background-color: #333;
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+}
+#status {
+    /*background-image: url(../img/preloader.gif);
+    background-position: center;*/
+    background-repeat: no-repeat;
+    height: 300px;
+    left: 46%;
+    margin: -100px 0 0 -100px;
+    position: absolute;
+    top: 42%;
+    width: 400px;
+}
+
+#preloader {
+    background: #f2f2f2;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9999;
 }
 
 header .header-content {
@@ -206,9 +263,13 @@ header .header-content .header-content-inner hr {
 
 header .header-content .header-content-inner p {
     margin-bottom: 50px;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 300;
-    color: rgba(255,255,255,.7);
+    color: rgba(255,255,255,1);
+}
+
+.i4ewOd-pzNkMb-haAclf {
+    background-color: rgb(240, 95, 64)!important;
 }
 
 @media(min-width:768px) {
@@ -235,7 +296,7 @@ header .header-content .header-content-inner p {
         margin-right: auto;
         margin-left: auto;
         max-width: 80%;
-        font-size: 18px;
+        font-size: 24px;
     }
 }
 
@@ -323,7 +384,7 @@ header .header-content .header-content-inner p {
 }
 
 .text-primary {
-    color: #f05f40;
+    color: #2EBA6D;
 }
 
 .no-gutter > [class*=col-] {
@@ -385,9 +446,9 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-    border-color: #f05f40;
+    border-color: #BD882C;
     color: #fff;
-    background-color: #f05f40;
+    background-color: #BD882C;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -428,12 +489,12 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    border-color: #f05f40;
-    background-color: #f05f40;
+    border-color: #BD882C;
+    background-color: #BD882C;
 }
 
 .btn-primary .badge {
-    color: #f05f40;
+    color: #BD882C;
     background-color: #fff;
 }
 
