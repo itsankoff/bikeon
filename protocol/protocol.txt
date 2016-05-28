@@ -1,0 +1,67 @@
+# CLIENT -> SERVER
+{
+    type: 'register',
+    payload: {
+        //
+    }
+}
+
+{
+    type: 'auth',
+    uid: '5385098320985093285'
+}
+
+{
+    type: 'lock',
+    uid: '5385098320985093285',
+    device_id: 'fdfds7f987ds98f99ds7f'
+}
+
+{
+    type: 'unlock',
+    uid: '5385098320985093285',
+    device_id: 'fdfds7f987ds98f99ds7f'
+}
+
+{
+    type: 'stream',
+    uid: '5385098320985093285',
+    device_id: 'fdfds7f987ds98f99ds7f'
+}
+
+# SERVER -> CLIENT
+{
+    type: 'response',
+    cmd: 'register',
+    status: 'success' | 'error',
+    uid: '5385098320985093285', // in case of success
+}
+
+
+{
+    type: 'response',
+    cmd: 'auth',
+    uid: '5385098320985093285',
+    status: 'success' | 'error',
+}
+
+{
+    type: 'response',
+    cmd: 'lock',
+    status: 'success' | 'error',
+    device_id: 'fdfds7f987ds98f99ds7f'
+}
+
+{
+    type: 'response',
+    cmd: 'unlock',
+    status: 'success' | 'error',
+    device_id: 'fdfds7f987ds98f99ds7f'
+}
+
+{
+    type: 'response',
+    cmd: 'stream',
+    status: 'success' | 'error',
+    video_url: 'http://example.com'
+}
