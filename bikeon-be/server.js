@@ -1,4 +1,5 @@
-var express    = require('express');        // call express
+var express = require('express');
+var http = require('http');
 var bodyParser = require('body-parser');
 var sqlite3 = require('sqlite3');
 var protocol = require('./protocol');
@@ -149,5 +150,8 @@ router.post('/subscribe', (req, res) => {
 app.use(bodyParser.json());
 app.use(allowCrossDomain);
 app.use('/api', router);
-app.listen(config.port);
-console.log('Magic happens on port ' + config.port);
+
+var server = http.createServer(app);
+server.listen(config.api_port, config.ip, () => {
+  console.log('Magic happens on %s:%d', config.ip, config.api_port);
+});
