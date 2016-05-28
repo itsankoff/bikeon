@@ -7,7 +7,7 @@
 {
     type: 'lock',
     uid: '5385098320985093285',
-    device_id: 'fdfds7f987ds98f99ds7f'
+    device_id: 'fdfds7f987ds98f99ds7f',
 }
 
 {
@@ -25,14 +25,6 @@
 # SERVER -> CLIENT
 {
     type: 'response',
-    cmd: 'register',
-    status: 'success' | 'error',
-    uid: '5385098320985093285', // in case of success
-}
-
-
-{
-    type: 'response',
     cmd: 'auth',
     uid: '5385098320985093285',
     status: 'success' | 'error',
@@ -42,14 +34,18 @@
     type: 'response',
     cmd: 'lock',
     status: 'success' | 'error',
-    device_id: 'fdfds7f987ds98f99ds7f'
+    device_id: 'fdfds7f987ds98f99ds7f',
+    timestamp: 144438798375,
 }
 
 {
     type: 'response',
     cmd: 'unlock',
     status: 'success' | 'error',
-    device_id: 'fdfds7f987ds98f99ds7f'
+    device_id: 'fdfds7f987ds98f99ds7f',
+    info: {
+        //
+    }
 }
 
 {
