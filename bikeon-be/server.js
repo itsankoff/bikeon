@@ -41,7 +41,7 @@ router.post('/auth', (req, res) => {
     }
 
     console.log(rows);
-    if (!rows.length) {
+    if (!rows || !rows.length) {
       db.run(`INSERT INTO user (name, uid) VALUES(?, ?)`, authData.name, authData.uid, (err) => {
         if (err) {
           console.log('fail to regiser', err);
@@ -98,7 +98,10 @@ router.post('/unlock', (req, res) => {
 });
 
 router.post('/stream', (req, res) => {
-  var streamData = req.json();
+  // not implemented
+  res.sjon(protocol.error(req));
+
+  var streamData = req.body;
   if (!protocol.validateRequest(streamData)) {
     res.json(protocol.error(req));
     return;
@@ -108,10 +111,40 @@ router.post('/stream', (req, res) => {
   // send the device to start streaming
   // return ffmpeg url
   if (true) {
-    res.json(req);
+    res.json(protocol.success(req));
   }
 });
 
+router.post('/subscribe', (req, res) => {
+  var subscribeData = req.body;
+  if (!protocol.validateRequest(subscribeData)) {
+    res.json(protocol.error(req));
+    return;
+  }
+
+  // make the auth with db
+  db.all(`SELECT email FROM email WHERE email='${subscribeData.email}';`, (err, rows) => {
+    if (err) {
+      console.log('db error', err);
+      res.json(protocol.error(req));
+    }
+
+    console.log(rows);
+    if (!rows || !rows.length) {
+      db.run(`INSERT INTO email (email) VALUES(?)`, subscribeData.email, (err) => {
+        if (err) {
+          console.log('fail to regiser', err);
+        } else {
+          res.json(protocol.success(req));
+        }
+      });
+    } else {
+      res.json(protocol.success(req));
+    }
+
+    return;
+  });
+});
 
 app.use(bodyParser.json());
 app.use(allowCrossDomain);

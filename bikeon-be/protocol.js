@@ -3,6 +3,7 @@ const REQUEST_TYPES = [
   'lock',
   'unlock',
   'stream',
+  'subscribe'
 ];
 
 const RESPONSE_TYPES = [
@@ -16,14 +17,19 @@ const STATUS_TYPES = [
 
 
 function validateRequest(req) {
-  if (req && req.type && REQUEST_TYPES.indexOf(req.type) !== -1 &&
-      req.uid) {
-    if (req.type == 'auth') {
+  if (req && req.type && REQUEST_TYPES.indexOf(req.type) !== -1) {
+    if (req.type == 'subscribe' && req.email) {
       return true;
     }
 
-    // all other requests needs device_id
-    return !!req.device_id;
+    if (req.uid) {
+      if (req.type == 'auth') {
+        return true;
+      }
+
+      // all other requests needs device_id
+      return !!req.device_id;
+    }
   }
 
   console.log('invalid request');
