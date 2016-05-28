@@ -1,7 +1,7 @@
 'use strict';
 
 var WebSocketChannel = require('./device_server/wsschannel');
-var config = require('./device_server/config');
+var config = require('./config');
 var Device = require('./device');
 
 
@@ -9,6 +9,12 @@ class Station {
   constructor() {
     // try to connect all the devices
     this.devices = {};
+
+    // mock device
+    var mockId = '491d8a72-24ea-11e6-b67b-9e71128cae77';
+    this.devices[mockId] = new Device(mockId);
+
+    // start service to manage devices
     this.deviceServer = new WebSocketChannel();
     this.deviceServer.onDeviceOpen(this._onDeviceOpen);
     this.deviceServer.onDeviceMessage(this._onDeviceMessage);
