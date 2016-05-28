@@ -9,6 +9,7 @@ fi
 if [ $1 == 'install' ]
 then
     # install npm packages
+    sudo apt-get install node
     npm install
     node dbinstall.js
 fi
