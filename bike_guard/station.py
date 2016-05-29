@@ -13,45 +13,43 @@ DEVICE_ID = '491d8a72-24ea-11e6-b67b-9e71128cae77'
 
 
 def on_message(ws, data):
-    try:
-        message = json.loads(data)
-        if message.type and message.device_id and message.device_id == DEVICE_ID:
-            if message.type == 'lock':
-                if lock.lock():
-                    print 'device is lock'
-                    ws.send(json.dumps({
-                        'type': 'lock',
-                        'status': 'success',
-                        'device_id': DEVICE_ID
-                    }))
-                else:
-                    ws.send(json.dumps({
-                        'type': 'lock',
-                        'status': 'fail',
-                        'device_id': DEVICE_ID
-                    }))
-                    print 'fail to lock device'
-            elif message.type == 'unlock':
-                if lock.unlock():
-                    print 'device in unlocked'
-                    ws.send(json.dumps({
-                        'type': 'unlock',
-                        'status': 'success',
-                        'device_id': DEVICE_ID
-                    }))
-                else:
-                    ws.send(json.dumps({
-                        'type': 'unlock',
-                        'status': 'fail',
-                        'device_id': DEVICE_ID
-                    }))
-                    print 'fail to unlock device'
+    print data
+    message = json.loads(data)
+    if message['type'] and message['device_id'] and message['device_id'] == DEVICE_ID:
+        if message['type'] == 'lock':
+            if lock.lock():
+                print 'device is lock'
+                ws.send(json.dumps({
+                    'type': 'lock',
+                    'status': 'success',
+                    'device_id': DEVICE_ID
+                }))
             else:
-                print 'Unknown command ' + message
+                ws.send(json.dumps({
+                    'type': 'lock',
+                    'status': 'fail',
+                    'device_id': DEVICE_ID
+                }))
+                print 'fail to lock device'
+        elif message['type'] == 'unlock':
+            if lock.unlock():
+                print 'device in unlocked'
+                ws.send(json.dumps({
+                    'type': 'unlock',
+                    'status': 'success',
+                    'device_id': DEVICE_ID
+                }))
+            else:
+                ws.send(json.dumps({
+                    'type': 'unlock',
+                    'status': 'fail',
+                    'device_id': DEVICE_ID
+                }))
+                print 'fail to unlock device'
         else:
-            print 'Invalid message' + message
-    except:
-        print 'Message is not json'
+            print 'Unknown command ' + message
+    else:
+        print 'Invalid message' + message
 
 
 def on_error(ws, error):
