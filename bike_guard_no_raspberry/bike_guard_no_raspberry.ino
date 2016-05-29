@@ -12,7 +12,9 @@ const int ledPin =  13;
 int buttonState = 0;
 int isLocked = 0;
 
+
 int isUnlocked = 0;
+int old = 1;
 
 int unlockedAngle = 0;
 int lockedAngle = 100;
@@ -29,8 +31,8 @@ void setup() {
 
   
   Serial.begin(9600);
-  servo.write(lockedAngle);
-  delay(15);
+  servo.write(unlockedAngle);
+  delay(1500);
 }
 
 void loop() {
@@ -39,7 +41,7 @@ void loop() {
   
   if (buttonState == HIGH) {
     digitalWrite(ledPin, LOW);
-    // digitalWrite(soundPin, LOW);    
+    //digitalWrite(soundPin, LOW);    
   } else {
     digitalWrite(alarmPin, HIGH);
     digitalWrite(ledPin, HIGH);
@@ -47,25 +49,33 @@ void loop() {
     tone(soundPin, 440, 2000);
   }
 
-  // int isUnlocked = digitalRead(unlockPin);
+  int isUnlocked = digitalRead(unlockPin);
   // Serial.println(isUnlocked);
 
-  isUnlocked = buttonState;
+  // isUnlocked = buttonState;
   Serial.println(isUnlocked);
+//
+//  if (isUnlocked == old) {
+//    continue;
+//  } else {
+//    old = isUnlocked;
+//  }
   
   if (isUnlocked == HIGH) {
      //tone(soundPin, 440, 500);
       servo.write(lockedAngle);
+      //delay(2000);  
+
   //   servo.write(unlockedAngle);
   } else {
      //tone(soundPin, 440, 500);
      servo.write(unlockedAngle);
-      //delay(2000);  
+     // delay(2000);  
 
 //     servo.write(lockedAngle);
   }
 
   delay(15);
-    digitalWrite(alarmPin, LOW);
+  digitalWrite(alarmPin, LOW);
 }
 
