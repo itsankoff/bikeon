@@ -2,7 +2,7 @@
 
 Servo servo;
 
-const int unlockPin = 4;
+const int unlockPin = 9;
 const int soundPin = 5;
 const int servoPin = 6;
 const int vibrationPin = 7;
@@ -16,8 +16,8 @@ int isLocked = 0;
 int isUnlocked = 0;
 int old = 1;
 
-int unlockedAngle = 0;
-int lockedAngle = 100;
+int unlockedAngle = 20;
+int lockedAngle = 120;
 
 void setup() {
   pinMode(vibrationPin, INPUT);
@@ -37,7 +37,6 @@ void setup() {
 
 void loop() {
   buttonState = digitalRead(vibrationPin);
-
   
   if (buttonState == HIGH) {
     digitalWrite(ledPin, LOW);
@@ -53,14 +52,15 @@ void loop() {
   // Serial.println(isUnlocked);
 
   // isUnlocked = buttonState;
+
+  if (isUnlocked == old) {
+    return;
+  } else {
+    old = isUnlocked;
+  }
+
   Serial.println(isUnlocked);
-//
-//  if (isUnlocked == old) {
-//    continue;
-//  } else {
-//    old = isUnlocked;
-//  }
-  
+
   if (isUnlocked == HIGH) {
      //tone(soundPin, 440, 500);
       servo.write(lockedAngle);
