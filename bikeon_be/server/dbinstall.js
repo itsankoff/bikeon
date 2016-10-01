@@ -4,6 +4,7 @@ var orm = require('orm');
 orm.connect('sqlite://bikeon.db', (err, db) => {
   if (err) {
     console.error('fail to connect', err);
+    return;
   }
 
   console.log('connected to db');
