@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:gravity="center_horizontal"
+    android:paddingTop="10dp"
+    android:background="@drawable/bg"
+    tools:context="bike.on.bikeon.LoginActivity"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_height="280dp"
+        android:layout_width="250dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/logo_img"
+        android:src="@drawable/logofull"
+        android:layout_gravity="bottom|center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="20sp"
+        android:textColor="@color/cardview_light_background"
+        android:text="@string/moto1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="20sp"
+        android:textColor="@color/cardview_light_background"
+        android:text="@string/moto2" />
+
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:textSize="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_centerInParent="true"
+        android:layout_weight="0.17" />
+
+</LinearLayout>
