@@ -2,7 +2,7 @@
 
 if [ $# -lt 1 ]
 then
-    echo 'Usage: manage.sh <run/kill/install/clear'
+    echo 'Usage: manage.sh <run/kill/install/clear>'
     exit 1
 fi
 
