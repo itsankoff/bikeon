@@ -18,11 +18,15 @@ fi
 
 if [ $1 == 'install' ]
 then
+    # python related deps
     pip3 install virtualenv
     virtualenv -p python3.5 env
     source env/bin/activate
     pip install -r requirements.txt
     deactivate
+
+    # create db schema
+    ./install/create_db.sh
 fi
 
 if [ $1 == 'clear' ]
