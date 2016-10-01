@@ -8,12 +8,12 @@ fi
 
 if [ $1 == 'run' ]
 then
-    ./bikeon_be.sh
+    ./bikeon_be
 fi
 
 if [ $1 == 'kill' ]
 then
-    killall manage.sh
+    cat .bikeon_be.pid | xargs kill
 fi
 
 if [ $1 == 'install' ]

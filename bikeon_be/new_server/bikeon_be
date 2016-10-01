@@ -1,2 +1,2 @@
+echo $$ > .bikeon_be.pid
 echo "hello BE"
-sleep 30
