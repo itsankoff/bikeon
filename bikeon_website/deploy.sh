@@ -1,1 +1,1 @@
-rsync -avz . --exclude ".git" zub@itsankoff.com:~/developers/bikeon-website
+rsync -avz . --exclude ".git" bikeon@bikeon.eu:~/bikeon-website
