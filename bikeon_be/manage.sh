@@ -6,13 +6,23 @@ then
     exit 1
 fi
 
+if [ $1 == 'run' ]
+then
+    ./bikeon-be
+fi
+
+if [ $1 == 'kill' ]
+then
+    killall bikeon-be
+fi
+
 if [ $1 == 'install' ]
 then
     # install npm packages
     sudo apt-get install nodejs
     sudo apt-get install npm
     sudo npm install -g n
-    n latest
+    sudo n latest
     source ~/.bashrc
     node --version
     npm install
