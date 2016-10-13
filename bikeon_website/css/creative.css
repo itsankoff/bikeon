@@ -94,14 +94,15 @@ p {
 
 @media(max-width:768px) {
     .map {
-        height: 75%;
+         height: 75%;
     }
 }
 
 
 .bg-dark {
     color: #fff;
-    background-color: #222;
+    /*background-color: #222;*/
+    background-color: #2eba6d;
 }
 
 .text-faded {
@@ -232,6 +233,7 @@ header {
     background-image: url(../img/header.jpg);
     background-color: #333;
     background-position: center;
+    background-attachment: fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -550,4 +552,11 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #222;
+}
+.overlay {
+    background: #000;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: .5;
 }
