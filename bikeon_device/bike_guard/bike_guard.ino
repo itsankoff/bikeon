@@ -16,51 +16,48 @@ int unlockedAngle = 0;
 int lockedAngle = 100;
 
 void setup() {
-  pinMode(vibrationPin, INPUT);
-  pinMode(unlockPin, INPUT);
-  
-  pinMode(alarmPin, OUTPUT);
-  pinMode(soundPin, OUTPUT);
-  pinMode(ledPin, OUTPUT);
+    pinMode(vibrationPin, INPUT);
+    pinMode(unlockPin, INPUT);
 
-  servo.attach(servoPin);
+    pinMode(alarmPin, OUTPUT);
+    pinMode(soundPin, OUTPUT);
+    pinMode(ledPin, OUTPUT);
 
-  
-  Serial.begin(9600);
-  servo.write(unlockedAngle);
-  delay(15);
+    servo.attach(servoPin);
+
+    Serial.begin(9600);
+    servo.write(unlockedAngle);
+    delay(15);
 }
 
 void loop() {
-  buttonState = digitalRead(vibrationPin);
+    buttonState = digitalRead(vibrationPin);
 
-  
-  if (buttonState == HIGH) {
-    digitalWrite(ledPin, LOW);
-    // digitalWrite(soundPin, LOW);    
-  } else {
-    digitalWrite(alarmPin, HIGH);
-    digitalWrite(ledPin, HIGH);
+    if (buttonState == HIGH) {
+        digitalWrite(ledPin, LOW);
+        // digitalWrite(soundPin, LOW);
+    } else {
+        digitalWrite(alarmPin, HIGH);
+        digitalWrite(ledPin, HIGH);
 
-    tone(soundPin, 440, 2000);
-  }
+        tone(soundPin, 440, 2000);
+    }
 
-  int isUnlocked = digitalRead(unlockPin);
-  Serial.println(isUnlocked);
+    int isUnlocked = digitalRead(unlockPin);
+    Serial.println(isUnlocked);
 
-  if (isUnlocked == HIGH) {
-     //tone(soundPin, 440, 500);
-     servo.write(lockedAngle);
-  //   delay(2000);  
-  //   servo.write(unlockedAngle);
-  } else {
-     //tone(soundPin, 440, 500);
-     servo.write(unlockedAngle);
-//     delay(2000);  
-//     servo.write(lockedAngle);
-  }
+    if (isUnlocked == HIGH) {
+        //tone(soundPin, 440, 500);
+        servo.write(lockedAngle);
+        //   delay(2000);
+        //   servo.write(unlockedAngle);
+    } else {
+        //tone(soundPin, 440, 500);
+        servo.write(unlockedAngle);
+        //     delay(2000);
+        //     servo.write(lockedAngle);
+    }
 
-  delay(15);
+    delay(15);
     digitalWrite(alarmPin, LOW);
 }
-
